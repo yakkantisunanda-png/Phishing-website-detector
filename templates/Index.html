@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Phishing Detector</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body{font-family:Arial; text-align:center; padding:20px; background:#0f172a; color:white;}
+        .box{background:white; color:black; padding:30px; border-radius:15px; max-width:400px; margin:auto; margin-top:40px;}
+        input{padding:12px; width:90%; border:1px solid #ccc; border-radius:8px; margin-bottom:10px;}
+        button{padding:12px 20px; background:#0f172a; color:white; border:none; border-radius:8px; width:95%; font-weight:bold;}
+        .safe{color:green; font-weight:bold; margin-top:15px;}
+        .danger{color:red; font-weight:bold; margin-top:15px;}
+    </style>
+</head>
+<body>
+    <h2>🔒 Phishing Website Detector</h2>
+    <p>Enter URL to check if it's safe</p>
+    <div class="box">
+        <form method="POST">
+            <input type="text" name="url" placeholder="https://example.com" required value="{{url}}">
+            <button type="submit">Check Now</button>
+        </form>
+        {% if result %}
+            <h3 class="{{ 'danger' if 'PHISHING' in result else 'safe' }}">{{ result }}</h3>
+        {% endif %}
+    </div>
+</body>
+</html>
